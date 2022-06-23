@@ -9,7 +9,7 @@
 ## Состав стенда.
 Развернем следующие виртуалки
 - `system` - хост, с которого будем получать метрики
-- `monitorint` - хост с развернутыми Prometheus+Grafana в докер-контейнерах
+- `monitoring` - хост с развернутыми Prometheus+Grafana в докер-контейнерах
 
 ## Запуск и проверка
 - Клонируем репозиторий:
@@ -27,3 +27,4 @@ ansible-playbook playbooks/main.yml -i inventories/all.yml
 ```
 - Web GUI Prometheus должна быть доступна по  URL `http://127.0.0.1:9090/`.
 - Dashboard Grafana должна быть доступна по  URL `http://127.0.0.1:3000/`.
+![net scheme](img/dashboard.png)
