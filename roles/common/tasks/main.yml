@@ -1,0 +1,27 @@
+---
+# tasks file for common
+#
+- name: Modify .bashrc for vagrant user
+  shell: 
+    cmd: "echo 'export TERM=xterm' >> /home/vagrant/.bashrc"
+
+- name: Fix Centos repos
+  shell: 
+    cmd: "dnf --disablerepo '*' --enablerepo=extras swap centos-linux-repos centos-stream-repos -y"
+- name: install some packages
+  yum:
+    name:
+      - yum-utils
+      - curl
+      - wget
+      - vim 
+    state: present
+    update_cache: true
+
+- name: add hosts 
+  lineinfile: 
+    path: /etc/hosts
+    line: '{{ item }}'
+  loop:
+    - '192.168.0.1 system'
+    - '192.168.0.2 monitoring'

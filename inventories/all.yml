@@ -1,0 +1,16 @@
+all:
+  vars:
+    ansible_user: 'vagrant'
+system:
+  hosts:
+    system:
+      ansible_host: 127.0.0.1 
+      ansible_port: 22001
+      ansible_ssh_private_key_file: .vagrant/machines/system/virtualbox/private_key 
+
+monitoring:
+  hosts:
+    monitoring:
+      ansible_host: 127.0.0.1 
+      ansible_port: 22002
+      ansible_ssh_private_key_file: .vagrant/machines/monitoring/virtualbox/private_key 
